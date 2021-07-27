@@ -1,0 +1,41 @@
+<p>reactiveforms1 works!</p>
+<form [formGroup]="loginform" >
+    <p>
+        <label>Enter Emailid</label>
+        <input type="text" formControlName="mailid">
+    </p>
+    <div *ngIf="!loginform.get('mailid')?.valid && (loginform.get('mailid')?.dirty || loginform.get('mailid')?.touched)"
+    class="error">
+    <div *ngIf="loginform.get('mailid')?.errors?.required">
+        <small class="text-danger">Email is required</small>
+    </div>
+    <div *ngIf="loginform.get('mailid')?.errors?.email">
+        <small class="text-danger">Email is invalid</small>
+    </div>
+</div>
+<p>
+    <label>Enter Password</label>
+    <input type="password" formControlName="pwd">
+</p>
+<div *ngIf="!loginform.get('pwd')?.valid && (loginform.get('pwd')?.dirty || loginform.get('pwd')?.touched)"
+class="error">
+<div *ngIf="loginform.get('pwd')?.errors?.required">
+    <small class="text-danger">password is required</small>
+</div>
+</div>
+
+<p>
+    <label>Enter Age</label>
+    <input type="number" formControlName="age">
+</p>
+  <div *ngIf="!loginform.get('age')?.valid && (loginform.get('age')?.dirty || loginform.get('age')?.touched)"
+  class="error">
+   <div *ngIf="loginform.get('age')?.errors?.ageRange">
+      <small class="text-danger">Age should be btw 18 and 45</small>
+    </div>
+ </div>
+
+  <button class="btn btn-success" type="submit" [disabled]="!loginform.valid">Login</button>
+
+
+</form>

@@ -1,0 +1,24 @@
+<div class="data">
+    <!--interpolation  {{}} accepts string-->
+    <!--one way binding-->
+    First Name:{{name}}<br />
+    Age:{{age}}<br/>
+    hobbies:{{hobbies}}<br>
+    Marks:{{marks}}<br>
+    Boolean:{{Istrue}}<br>
+    Tuple:{{tupleval}}<br>
+    Any:{{dynamicvalue}}<br>
+    Object:
+
+    Fathername:{{student.Fathername}}
+    address:{{student.address}}<br>
+
+    JSOn:{{student|json}}
+</div>
+<hr>
+<img src="assets/images/ball.jpg" alt="ball" height="50" width="50"/>
+<hr>
+<img src={{picture}} alt="doll" />
+<hr>
+<h2>Property binding</h2>
+<img [src]=picture alt="Doll"/>

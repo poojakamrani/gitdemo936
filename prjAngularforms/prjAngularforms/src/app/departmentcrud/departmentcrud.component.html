@@ -1,0 +1,37 @@
+<p>departmentcrud works!</p>
+<form>
+    Enter the Did:<input type="number" id="did" name="deptid"[(ngModel)]="getdeptinfo.did"><br><br>
+    Enter the name:<input type="text" id="dname" name="deptname"[(ngModel)]="getdeptinfo.dname"><br><br>
+    Enter the Location:<input type="text" id="dloc" name="deptloc"[(ngModel)]="getdeptinfo.dloc"><br><br>
+    
+    <button class="btn btn-primary" (click)="addDepartment()">Add</button> &nbsp;&nbsp;&nbsp;
+    <!--&nbsp for spacing between two buttons-->
+    <button class="btn btn-primary" (click)="updateDepartment()">update</button>
+
+</form>
+
+<h1 style="color:red;font-size:30px;">{{msg}}</h1>
+<hr>
+<h1>Department info</h1>
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Location</th>
+                
+            </tr>
+        </thead>
+        <tbody *ngFor="let e of dept;let i=index">
+            <tr>
+                <td>{{e.did}}</td>
+                <td>{{e.dname}}</td>
+                <td>{{e.dloc}}</td>
+                
+                <td><button (click)="deleteDepartment(e.did)">Delete</button></td>
+                <td><button (click)=" EditDepartment(e.did)">Edit</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

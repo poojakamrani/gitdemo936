@@ -1,0 +1,41 @@
+<p>directives works!</p>
+<h1>structural directive</h1>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Index</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Department</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let emp of employee,let i=index">
+        <tr>
+            <td>{{i}}</td>
+            <td>{{emp.name}}</td>
+            <td>{{emp.age}}</td>
+            <td>{{emp.dept}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<hr>
+<h2>NGIF</h2>
+<div *ngFor="let e of employee">
+    <li *ngIf="e.age>21 && e.dept==='Hr'">{{e.name}} {{e.age}} {{e.dept}}</li>
+</div>
+<hr>
+<h3>Switch case</h3>
+<div *ngFor="let e of employee"[ngSwitch]="e.dept">
+    <li *ngSwitchcase="'Hr'" class="text-success">{{e.name}} {{e.dept}}</li>
+    <li *ngSwitchcase="'pr'" class="text-danger">{{e.name}} {{e.dept}}</li>
+    <li *ngSwitchDefault class="text-primary">{{e.name}} {{e.dept}}</li>
+
+</div>
+<hr>
+<h3>Attribute directive</h3>
+<h2>ng class</h2>
+<ul *ngFor="let e of employee">
+    <li [ngClass]="{'text-success':e.dept==='Hr','text-danger':e.dept==='pr'}">{{e.name}} {{e.dept}}</li>
+</ul>

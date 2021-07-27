@@ -1,0 +1,48 @@
+<p>reactiveforms2 works!</p>
+
+<form [formGroup]="form" >
+
+    <p>
+        <label>Enter Name</label>
+        <input type="password" formControlName="name">
+    </p>
+    <p>
+        <label>Enter Emailid</label>
+        <input type="text" formControlName="mailid">
+    </p>
+    
+<p>
+    <label>Enter Password</label>
+    <input type="password" formControlName="pwd">
+</p>
+<p>
+    <label>confirm Password</label>
+    <input type="password" formControlName="cpwd">
+</p>
+
+
+<p>
+    <label>Enter Phoneno</label>
+    <input type="number" formControlName="phno">
+</p>
+<p>
+    <label>Enter Gender</label>
+    <input type="radio" value='Male' formControlName="gender" >Male
+  <input type="radio" value='Female' formControlName="gender">Female
+</p>
+<p>
+    <label>Enter city</label>
+    <select class="custom-select" formControlName="city">
+        <option disabled>Choose value</option>
+        <option value="">Choose city</option>
+        <option *ngFor="let c of city">
+          {{c}}
+        </option>
+      </select>
+</p>
+  
+
+  <button class="btn btn-success" type="submit">Login</button>
+
+
+</form>

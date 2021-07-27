@@ -1,0 +1,14 @@
+<p>eventbinding works!</p>
+<h2>click the button to see msg</h2>
+<button class="btn btn-primary"(click)=welcomeMsg()>click me</button>
+<hr>
+
+<h3>template refernce variable:symbol #:used to refer any dom element inside html</h3>
+Enter your Name:<input type="text"#uname>
+<button class="btn btn-primary"(click)=displayfullName(uname)>Display full name</button>
+<h3>Fullname:{{fname}}</h3>
+
+<hr>
+Enter your salary:<input type="text" #isal>
+<button class="btn btn-primary"(click)=displayBonus(isal)>GetBonus</button>
+<p>BonusAmount:<span class="sal">{{calbonus}}</span></p>

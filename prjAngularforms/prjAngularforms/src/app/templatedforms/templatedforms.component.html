@@ -1,0 +1,69 @@
+<p>templatedforms works!</p>
+<form #custform="ngForm" (ngSubmit)="onRegister(custform)" novalidate>
+    <!--novalidate is used to disable browser validation -->
+    <p>
+        <label for="name">Enter Name</label>
+        <input type="text" id="name" name="fname" [(ngModel)]="cust.cname" #cname="ngModel" required minlength="5">
+        touched:{{cname.touched}}
+        dirty:{{cname.dirty}}
+    </p>
+    <div *ngIf="!cname?.valid && (cname?.dirty || cname?.touched)" class="error">
+        <div *ngIf="cname.errors?.required">
+            <small class="text-danger">Customer name is required</small>
+        </div>
+
+        <div *ngIf="cname.errors?.minlength">
+            <small class="text-danger">Customer name should be of minimumlength:{{cname.errors?.minlength.requiredLength}}</small>
+        </div>
+    </div>
+    <p>
+        <label for ="age">Enter Age</label>
+        <input type="number" id="age" name="age" [(ngModel)]="cust.age" #cage="ngModel" required>
+    </p>
+    <div *ngIf="!cage?.valid && (cage?.dirty || cage?.touched)" class="error">
+        <div *ngIf="cage.errors?.required">
+            <small class="text-danger">Age is required</small>
+        </div>
+    </div>
+    <p>
+        <label for ="phoneno">Enter Mobileno</label>
+        <input type="text" id="phno" name="phoneno" [(ngModel)]="cust.phoneno" #cphoneno="ngModel" required pattern="^\d{3}-\d{2}-\d{4}$">
+    </p>
+    <div *ngIf="!cphoneno?.valid &&(cphoneno?.dirty || cphoneno?.touched)" class="error">
+        <div *ngIf="cphoneno.errors?.required">
+            <small class="text-danger">phoneno is required</small>
+        </div>
+        <div *ngIf="cphoneno.errors?.pattern">
+            <small class="text-danger">follow correct pattern</small>
+        </div>
+    </div>
+    <p>
+        <label for ="mailid">Enter Email</label>
+        <input type="text" id="mailid" name="mailid" [(ngModel)]="cust.mailid" #cmailid="ngModel" email required>
+    </p>
+    <div *ngIf="!cmailid?.valid &&(cmailid?.dirty || cmailid?.touched)" class="error">
+        <div *ngIf="cmailid.errors?.required">
+            <small class="text-danger">email is required</small>
+        </div>
+        <div *ngIf="cmailid.errors?.email">
+            <small class="text-danger">follow correct pattern</small>
+        </div>
+    </div>
+
+    <p>
+        <label for ="gender">select gender</label>
+        <input type="radio" name="gender" value="male" [(ngModel)]="cust.gender">male
+        <input type="radio" name="gender" value="female" [(ngModel)]="cust.gender">female
+    </p>
+    <p>
+        <label for ="newsletter">Newsletter</label>
+        <input type="checkbox" id="nletter" name="newsletter" [(ngModel)]="cust.newsletter">
+    </p>
+    <p>
+        <button class="btn btn-primary" type="submit"[disabled]="!custform.valid">Submit</button>
+    </p>
+
+    valid:{{custform.valid}}
+    
+
+</form>

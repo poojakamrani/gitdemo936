@@ -1,0 +1,37 @@
+<p>employeecrud works!</p>
+<form>
+    Enter the Eid:<input type="number" id="eid" name="empid"[(ngModel)]="getempinfo.eid"><br><br>
+    Enter the name:<input type="text" id="ename" name="empname"[(ngModel)]="getempinfo.ename"><br><br>
+    Enter the gender:<input type="text" id="gender" name="empgender"[(ngModel)]="getempinfo.gender"><br><br>
+    Enter the salary:<input type="number" id="salary" name="empsalary"[(ngModel)]="getempinfo.salary"><br><br>
+    <button class="btn btn-primary" (click)="addEmployee()">Add</button> &nbsp;&nbsp;&nbsp;
+    <!--&nbsp for spacing between two buttons-->
+    <button class="btn btn-primary" (click)="updateEmployee()">update</button>
+
+</form>
+
+<h1 style="color:red;font-size:30px;">{{msg}}</h1>
+<hr>
+<h1>Employee info</h1>
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let e of emp;let i=index">
+            <tr>
+                <td>{{e.eid}}</td>
+                <td>{{e.ename}}</td>
+                <td>{{e.gender}}</td>
+                <td>{{e.salary}}</td>
+                <td><button (click)="deleteEmployee(e.eid)">Delete</button></td>
+                <td><button (click)=" EditEmployee(e.eid)">Edit</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
